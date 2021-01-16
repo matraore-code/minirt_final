@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "parser.h"
-// #include "../minilibx/mlx.h"
+#include "../../librairies/minilibx/mlx.h"
 #include <stdlib.h>
 
 int	mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey);
@@ -44,7 +44,7 @@ int	parse_resolution(t_data *g_win, const char *lines)
         error_exit("RESOLUTION MAL DEFINIE", g_win);
     g_win->res.size_x = ft_atoi(array[1]);
     g_win->res.size_y = ft_atoi(array[2]);
-    // mlx_get_screen_size(g_win->mlx_ptr, &x_max, &y_max);
+    mlx_get_screen_size(g_win->mlx_info.mlx, &x_max, &y_max);
     if (g_win->res.size_x > x_max)
             g_win->res.size_x = x_max;
     if (g_win->res.size_y > y_max)

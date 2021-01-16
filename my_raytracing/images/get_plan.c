@@ -1,5 +1,7 @@
 #include "../includes/minirt.h"
 
+
+
 t_hit  get_hit_plane(t_object *plane, t_ray ray, t_data *g_win)
 {
     double d;

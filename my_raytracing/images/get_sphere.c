@@ -9,6 +9,10 @@ int swap_d(double *d1, double *d2)
 	*d2 = tmp;
 }
 
+t_tuple normale_sphere(t_hit hit, t_ray ray, t_data *g_win)
+{
+        return (a_vers_b(hit.obj->pos[0], hit.pos));
+}
 
 t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win)
 {

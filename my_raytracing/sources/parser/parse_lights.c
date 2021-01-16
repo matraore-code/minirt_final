@@ -47,7 +47,7 @@ void			checked_value_light(char **array, t_light *light, t_data *g_win)
 
 	if (!(ft_in_range(light->bright = ft_atodbl(array[2]), 0, 1)))
 			error_exit("ERREUR BRIGTHNESS", g_win);
-	light->pos = parse_vector(array[1]);
+	light->pos = parse_vector(array[1], g_win);
     str = ft_split(array[3], ',');
     light->col = parse_color(str, g_win);
 }

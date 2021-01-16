@@ -10,6 +10,8 @@
 #include "../librairies/get_next_line/get_next_line.h"
 #include "../librairies/libft/libft.h"
 #include "../sources/outils/tools/tools.h"
+#define Pi 3.1415926
+
 
 int initialise_img(t_data *g_win);
 int render(t_data *g_win);
@@ -27,7 +29,19 @@ t_color  *get_shape(t_data *g_win);
 t_color   trace_ray(t_ray, t_data *data);
 t_hit hit_infini(void);
 t_hit create_dist_hit(t_object *obj, t_tuple p, t_color c, double d);
+t_hit   get_object_hit(t_object *obj, t_ray ray, t_data *g_win);
 t_hit  get_hit_plane(t_object *plane, t_ray ray, t_data *g_win);
+t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win);
+int   ombrage(t_object *object, t_light *light, t_ray ray, t_data *g_win);
+t_tuple normale_sphere(t_hit hit, t_ray ray, t_data *g_win);
+
+t_ray	create_ray(t_tuple origin, t_tuple direction);
+t_tuple get_normal(t_hit hit_point, t_ray ray, t_data *g_win);
+
+t_color     compute_light(t_hit hit_point, t_ray ray, t_light *lights,
+                        t_data *g_win);
+t_color     compute_lights(t_hit hit_point, t_ray ray, t_data *g_win);
+
 
 
 

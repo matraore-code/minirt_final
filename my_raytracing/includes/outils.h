@@ -51,7 +51,6 @@ typedef struct s_cam
     double     fov;
    t_matrice   rot_mat;
    double       distance;
-   t_tuple_4d   quat;
 }              t_cam;
 
 typedef struct s_light
@@ -125,6 +124,9 @@ typedef struct        s_data
 
 t_color		multi_color_reel(t_color c, double a);
 t_color		create_color(double r, double g, double b);
+t_color		multiple_colors(t_color a, t_color b);
+t_color		compare_color(t_color c, t_color a);
+
 
 void error_exit(char *err, t_data *data);
 void free_all(t_data *data);

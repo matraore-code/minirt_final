@@ -22,14 +22,6 @@ typedef struct		s_tuple
 	double		z;
 }			t_tuple;
 
-typedef struct 		s_tuple_4d
-{
-	double x;
-	double y;
-	double z;
-	double w;
-}					t_tuple_4d;
-
 
 typedef struct		s_matrice
 {
