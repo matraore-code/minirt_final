@@ -33,7 +33,7 @@ t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win)
     // }
     tc[1] = sqrt(sphere->size / 2 - dis);
     t[0] = tc[0] - tc[1];
-    t[1] = tc[0] - tc[1];
+    t[1] = tc[0] + tc[1];
     if (t[0] > t[1])
         swap_d(&t[0], &t[1]);
     if (t[0] < 0)
