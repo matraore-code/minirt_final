@@ -1,4 +1,16 @@
-#ifndef MATHS_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math_tools.h                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/16 08:19:27 by matraore          #+#    #+#             */
+/*   Updated: 2021/01/16 09:00:43 by matraore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MATH_TOOLS_H
 #define MATH_TOOLS_H
 
 #include <stddef.h>
@@ -37,7 +49,7 @@ t_tuple		soustraction_tuple(t_tuple a, t_tuple b);
 t_tuple		produit_tuple(t_tuple a, t_tuple b);
 double			distance_tuples(t_tuple a, t_tuple b);
 t_tuple		multi_tuple_reel(t_tuple a, double b);
-t_tuple		div_vect_reel(t_tuple a, double b);
+t_tuple		div_tuple_reel(t_tuple a, double b);
 double			longueur_tuple(t_tuple a);
 t_tuple		normale_tuple(t_tuple a);
 double			produit_scalaire(t_tuple a, t_tuple b);

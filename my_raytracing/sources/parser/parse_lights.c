@@ -6,19 +6,19 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 12:22:04 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/29 08:20:10 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 09:32:19 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/parser.h"
 
-t_light		*create_light()
+t_light		*create_light(t_data *g_win)
 {
 	t_light	*light;
 
 	light = malloc(sizeof(t_light));
 	if (!light)
-		error_and_exit("ERREUR CREATION de lumiere", 0);
+		error_exit("ERREUR CREATION de lumiere", g_win);
 	light->pos = create_tuple(0, 0, 0);
 	light->bright = 0;
 	light->col = create_color(0, 0, 0);
@@ -57,7 +57,7 @@ extern int      parse_light(t_data *g_win, const char *lines)
     char    **array;
 	 t_light	*light;
     array = ft_split(lines, ' ');
-	light = create_light();
+	light = create_light(g_win);
     if (!check_light(g_win, array))
         error_exit("ERREUR D'IMPLEMENTAION LUMIERE", g_win);
 	checked_value_light(array, light, g_win);

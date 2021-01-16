@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 16:08:03 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/28 09:17:24 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 09:09:43 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	create_ambient(t_ambiant *ambi)
 	ambi->col = create_color(0, 0, 0);
 }
 
-int         check_ambiant(t_data *g_win, char **str)
+static int         check_ambiant(t_data *g_win, char **str)
 {
     int l;
 

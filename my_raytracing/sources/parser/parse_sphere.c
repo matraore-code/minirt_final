@@ -6,13 +6,11 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 11:48:40 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/29 10:51:54 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 15:54:30 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
-
-
+#include "../../includes/parser.h"
 
 int         check_sphere(t_data *g_win,char **str)
 {
@@ -27,7 +25,6 @@ int         check_sphere(t_data *g_win,char **str)
         return (1);
 
 }
-
 
 void			checked_value_sphere(t_data *g_win,char **arr, t_object *obj)
 {
@@ -47,7 +44,6 @@ extern int      parse_sphere(t_data *g_win, const char *lines)
 {
     char    **array;
     t_object *object;
-
 	    
     if (!(object = malloc(sizeof(t_object))))
         error_exit("impoosible d'allouer le sphere", g_win);

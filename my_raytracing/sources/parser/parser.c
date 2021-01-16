@@ -6,11 +6,11 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:09:00 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/29 10:54:34 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 12:09:13 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "parser.h"
+# include "../../includes/parser.h"
 
 static int g_res;
 static int g_am;
@@ -55,7 +55,7 @@ void		is_defined(t_data *g_win)
 		error_exit("RESOLUTION NON DEFINIE", g_win);
 	if (!(g_win->ambi.is_def))
 		error_exit("LUMIERE AMBIANTE NON DEFINIE", g_win);
-	if (!(g_win->list_cam.content))
+	if (!(g_win->list_cam->content))
 		error_exit("CAMERA NON DEFINIE", g_win);
 }
 
@@ -101,11 +101,13 @@ void        get_scene_info(t_data *g_win, const char *filename)
 		error_exit("echec d'ouverture du fichier", g_win);
 	while (1)
 	{
-		i = get_next_line(fd, &lines); 
+		i = get_next_line(fd, &lines);
+		// printf("%s\n", lines);
 	 	checke_elemt(g_win, lines);
 	 	if (i == 0)
 	 		break;
 	}
-    is_defined(g_win);
-	g_win->camera = g_win->list_cam.content;
+    // is_defined(g_win);
+	g_win->camera = g_win->list_cam->content;
+	g_win->lights = g_win->list_light->content;
 }

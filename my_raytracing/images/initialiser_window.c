@@ -33,6 +33,7 @@ int render(t_data *g_win)
     free(shape);
     mlx_put_image_to_window(g_win->mlx_info.mlx, g_win->mlx_info.mlx_win,
         g_win->mlx_info.mlx_data.img, 0 , 0);
+    return (0);
 }
 
 static int  quitte(t_data *g_win)
@@ -54,4 +55,5 @@ int initialise_win(t_data *g_win)
     mlx_hook(g_win->mlx_info.mlx_win, 17, 0L, &quitte, g_win);
     mlx_key_hook(g_win->mlx_info.mlx_win, &key_hook, g_win);
 	mlx_loop_hook(g_win->mlx_info.mlx, &render, g_win);
+    return(1);
 }

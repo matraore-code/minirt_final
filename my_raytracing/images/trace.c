@@ -22,7 +22,7 @@ t_hit  hit_object(t_ray ray, t_data *g_win)
     list_obj = g_win->objects;
     while (list_obj)
     {
-        hit = get_object_hit((t_object *)list_obj, ray, g_win);
+        hit = get_object_hit((t_object *)(list_obj->content), ray, g_win);
         if (hit.distance < d)
         {
             near_obj = (t_object *)list_obj->content;
@@ -41,8 +41,7 @@ t_color   trace_ray(t_ray ray, t_data *g_win)
     t_hit hit;
 
     hit = hit_object(ray, g_win);
-    if (hit.distance ==INFINITY)
-        return (create_color(0, 0, 0));
-    return (trace_light(hit, ray, g_win));
-    
+    // if (hit.distance == INFINITY)
+    //     return (create_color(0, 0, 0));
+    return (compute_lights(hit, ray, g_win));
 }

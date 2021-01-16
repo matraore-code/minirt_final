@@ -6,19 +6,19 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 11:48:40 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/29 09:16:32 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:24:10 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/parser.h"
 
-t_cam		*create_cam()
+t_cam		*create_cam(t_data *g_win)
 {
 	t_cam	*cam;
 
 	cam = malloc(sizeof(t_cam));
 	if (!cam)
-		error_and_exit("ERREUR CREATION CAM", 0);
+		error_exit("ERREUR CREATION CAMERA", g_win);
 	cam->pos = create_tuple(0, 0, 0);
 	cam->dir = create_tuple(0, 0, 0);
 	cam->fov = 0;
@@ -43,22 +43,7 @@ int         check_camera(t_data *g_win,char **str)
 
 }
 
-// void			multi_camera(t_cam **cams, t_cam *new_cam)
-// {
-// 	t_cam	*cursor;
 
-// 	if (!cams || !new_cam)
-// 		return ;
-// 	if (*cams)
-// 	{
-// 		cursor = *cams;
-// 		while (cursor->next)
-// 			cursor = cursor->next;
-// 		cursor->next = new_cam;
-// 	}
-// 	else
-// 		*cams = new_cam;
-// }
 
 void			checked_value_cam(char **array, t_cam *cam, t_data *d)
 {
@@ -82,7 +67,7 @@ extern int      parse_camera(t_data *g_win, const char *lines)
 	 t_cam	*cam;
 
     array = ft_split(lines, ' ');
-	cam = create_cam();
+	cam = create_cam(g_win);
     if (!check_camera(g_win, array))
         error_exit("ERREUR D'IMPLEMENTAION CAMERA", g_win);
 	checked_value_cam(array, cam, g_win);

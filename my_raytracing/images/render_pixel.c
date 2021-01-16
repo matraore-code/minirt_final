@@ -51,6 +51,7 @@ t_color        pixel(t_tuple_2d pix, t_data *g_win)
         ray.ori = g_win->camera->pos;
         cast = trace_ray(ray, g_win);
         return (cast);
+
 }
 
 t_color  *get_shape(t_data *g_win)

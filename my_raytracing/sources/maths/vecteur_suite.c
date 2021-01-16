@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vecteur_suite.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/16 08:42:27 by matraore          #+#    #+#             */
+/*   Updated: 2021/01/16 08:47:27 by matraore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/math_tools.h"
 
 /*
 ** Suite sur les operations basique des tuples
 */
 
-t_tuple	multi_vect_reel(t_tuple a, double b)
+t_tuple	multi_tuple_reel(t_tuple a, double b)
 {
 	t_tuple	tuple;
 
@@ -12,7 +24,7 @@ t_tuple	multi_vect_reel(t_tuple a, double b)
 	return (tuple);
 }
 
-t_tuple	div_vect_reel(t_tuple a, double b)
+t_tuple	div_tuple_reel(t_tuple a, double b)
 {
 	t_tuple	tuple;
 

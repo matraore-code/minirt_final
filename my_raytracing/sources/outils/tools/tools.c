@@ -6,15 +6,16 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 05:27:31 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 00:07:53 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 09:52:30 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "tools.h"
 #include <limits.h>
 #include <string.h>
+# include "../../../includes/tools.h"
+
 
 void		tools_memory_init(void)
 {

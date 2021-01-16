@@ -7,6 +7,7 @@ int swap_d(double *d1, double *d2)
 	tmp = *d1;
 	*d1 = *d2;
 	*d2 = tmp;
+    return (0);
 }
 
 t_tuple normale_sphere(t_hit hit, t_ray ray, t_data *g_win)
@@ -25,8 +26,11 @@ t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win)
     p = soustraction_tuple(sphere->pos[0], ray.ori);
     tc[0] = produit_scalaire(p, ray.dir);
     dis = produit_scalaire(p, p) - pow(tc[0], 2);
-    if (dis > sphere->size / 2)
-        return (hit_infini());
+    printf("[dis : %f] %f\n", dis, sphere->size);
+    // if (dis > sphere->size / 2)
+    // {
+    //     return (hit_infini());
+    // }
     tc[1] = sqrt(sphere->size / 2 - dis);
     t[0] = tc[0] - tc[1];
     t[1] = tc[0] - tc[1];
@@ -38,7 +42,7 @@ t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win)
         if (t[0] < 0)
             return (hit_infini());
     }
-    return ( create_dist_hit(sphere,
+    return (create_dist_hit(sphere,
         addition_tuple(ray.ori, multi_tuple_reel(ray.dir, t[0])),
          sphere->color, t[0]));
 }

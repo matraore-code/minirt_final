@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 16:45:49 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/25 14:36:15 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 09:33:13 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_color     parse_color(char **array, t_data *g_win)
     if (color.r > 255 || color.g > 255 ||
             color.b > 255 || color.r < 0 ||
             color.g < 0 || color.b < 0)
-                error_and_exit("INTERVAL DE COULEUR INCORRECT", 0);
+                error_exit("INTERVAL DE COULEUR INCORRECT", g_win);
     
     
     return (color);

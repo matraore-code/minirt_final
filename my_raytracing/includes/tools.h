@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 05:38:53 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/22 16:26:09 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 09:51:47 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-# include "../../../librairies/libft/libft.h"
+# include "../librairies/libft/libft.h"
 # define TRUE 1
 # define FALSE 0
 # define EPSILON 0.00001
@@ -38,4 +38,8 @@ double      ft_min(double a, double b);
 double      ft_square(double a);
 int          ft_in_range(double d, double d_min, double d_max);
 
+t_list	*lst_new(void *content);
+t_list	*lst_new_back(t_list **node, void *content);
+void	lst_new_front(t_list **node, void *content);
+void	lst_remove(t_list *node, void (*free_func)(void *));
 #endif

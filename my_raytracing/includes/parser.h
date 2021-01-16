@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 17:14:34 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/29 11:05:46 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/16 09:48:49 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 # define PARSER_H
 # include "../librairies/libft/libft.h"
 # include "../librairies/get_next_line/get_next_line.h"
-# include "../sources/outils/tools/tools.h"
 # include "minirt.h"
 # include  "math_tools.h"
-# include "../sources/outils/tools/tools.h"
+# include "tools.h"
 # include  "outils.h"
 # include <unistd.h>
 # include <sys/types.h>

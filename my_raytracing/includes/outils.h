@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   outils.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/16 09:00:57 by matraore          #+#    #+#             */
+/*   Updated: 2021/01/16 09:40:40 by matraore         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef OUTILS_H
 #define OUTILS_H
 
@@ -20,15 +32,6 @@ typedef struct      s_ray
     t_tuple      ori;
     t_tuple      dir;
 }                   t_ray;
-
-typedef struct      s_hit
-{
-    t_object        *obj;
-    t_tuple    pos;
-    t_color color;
-    double   distance;
-}            t_hit;
-
 
 typedef struct  s_resolution
 {
@@ -60,13 +63,6 @@ typedef struct s_light
     t_color     col;
 }               t_light;
 
-typedef struct s_pherr
-{
-    t_tuple     centre;
-    double      r;
-    t_color     col;
-}               t_sphere;
-
 typedef enum        e_objid
 {
     PL,
@@ -86,6 +82,15 @@ typedef struct		s_object
 	double			height;
 	double			distance;
 }					t_object;
+
+typedef struct      s_hit
+{
+    t_object        *obj;
+    t_tuple    pos;
+    t_color color;
+    double   distance;
+}            t_hit;
+
 
 
 typedef struct		s_mlx_data
@@ -112,7 +117,7 @@ typedef struct        s_data
     t_list			*objects;
     t_list          *list_cam;
 	t_cam		*camera;
-    t_list          list_light;
+    t_list          *list_light;
 	t_light			*lights;
 	t_reso		res;
 	int         save;

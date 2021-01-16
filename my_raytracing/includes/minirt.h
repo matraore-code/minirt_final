@@ -7,9 +7,14 @@
 #include <stdlib.h>
 #include "math_tools.h"
 #include "outils.h"
+#include "parser.h"
 #include "../librairies/get_next_line/get_next_line.h"
 #include "../librairies/libft/libft.h"
-#include "../sources/outils/tools/tools.h"
+#include <stdio.h>
+
+#define yo printf("YO!\n");
+#define yep printf("YEP!\n");
+
 #define Pi 3.1415926
 
 
