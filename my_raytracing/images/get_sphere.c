@@ -46,3 +46,18 @@ t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win)
         addition_tuple(ray.ori, multi_tuple_reel(ray.dir, t[0])),
          sphere->color, t[0]));
 }
+
+t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)
+{
+	double	denom;
+	double	t;
+
+	(void)data;
+	denom = vec_dot_prod(plane->vector, ray.direction);
+	t = (vec_dot_prod(vec_sub(plane->pos[0], ray.origin), plane->vector) /
+		denom);
+	if (t < 0)
+		return (ray_res_inf());
+	return (ray_res_dist_new(plane, vec_add(ray.origin,
+					vec_multi(ray.direction, t)), plane->color, t));
+}
