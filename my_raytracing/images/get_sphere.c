@@ -60,7 +60,29 @@ t_hit   get_hit_sphere(t_object *sphere, t_ray ray, t_data *g_win)
         if (t[0] < 0)
             return (hit_infini());
     }
+<<<<<<< HEAD
     return (create_dist_hit(sphere, addition_tuple(ray.ori, multi_tuple_reel(ray.dir, t[0])), sphere->color, t[0]));
 }
 
  //gcc minirt.c sources/maths/*.c sources/outils/color/*.c sources/outils/error_print/*.c sources/parser/*.c librairies/libft/*.c librairies/get_next_line/*.c sources/outils/tools/*.c images/*.c -lmlx -framework OpenGL -framework AppKit libmlx.dylib -fsanitize=address
+=======
+    return (create_dist_hit(sphere,
+        addition_tuple(ray.ori, multi_tuple_reel(ray.dir, t[0])),
+         sphere->color, t[0]));
+}
+
+t_ray_res	obj_dist_pl(t_object *plane, t_ray ray, t_data *data)
+{
+	double	denom;
+	double	t;
+
+	(void)data;
+	denom = vec_dot_prod(plane->vector, ray.direction);
+	t = (vec_dot_prod(vec_sub(plane->pos[0], ray.origin), plane->vector) /
+		denom);
+	if (t < 0)
+		return (ray_res_inf());
+	return (ray_res_dist_new(plane, vec_add(ray.origin,
+					vec_multi(ray.direction, t)), plane->color, t));
+}
+>>>>>>> 4a76dbbbbf05f509dba51bdbc167378e5c3932d0
