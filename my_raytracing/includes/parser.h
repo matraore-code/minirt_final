@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 17:14:34 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:48:49 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/17 14:28:02 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,9 @@ void			checked_value_light(char **array, t_light *light, t_data *g_win);
 extern int      parse_light(t_data *g_win, const char *lines);
 extern int      parse_sphere(t_data *g_win, const char *lines);
 void			checked_value_sphere(t_data *g_win,char **arr, t_object *obj);
+extern int      parse_plan(t_data *g_win, const char *lines);
+void			checked_value_plan(t_data *g_win,char **arr, t_object *obj);
+int         check_plan(t_data *g_win,char **str);
+
 
 #endif

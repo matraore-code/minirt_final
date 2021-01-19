@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:09:00 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 12:09:13 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:33:08 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,23 +68,27 @@ static int	parse_element(t_data *g_win,const char *lines)
 	if (!(ft_strncmp(lines, "c", 1)))
 	{
 		if (!(ft_strncmp(lines, "cy", 2)))
-			printf("okay");
+			printf("ok");
 		else 
 			parse_camera(g_win, lines);
 	}
+	if (lines[0] == 'l')
+		parse_light(g_win, lines);
+	// if (lines[0] == 'p' && lines[1] == 'l')
+	// 	parse_plan(g_win, lines);
+	// if (!(ft_strncmp(lines,"l", 1)) && *lines == 'l')
+	// 	parse_light(g_win, lines);
+	if (!(ft_strncmp(lines, "t", 1)))
+		parse_plan(g_win, lines);
 	if (!(ft_strncmp(lines, "s", 1)))
 	{
 		if (!(ft_strncmp(lines, "sq", 2)))
-			printf("okay !!!");
-		else if (!(ft_strncmp(lines, "sp", 2)))
+			printf("ok");
+		else if (!(ft_strncmp(lines, "sp", 2)) )
 			parse_sphere(g_win, lines);
 	}
-	if (!(ft_strncmp(lines,"l", 1)))
-		parse_light(g_win, lines);
 	// if (!(ft_strncmp(lines, "t", 1)))
 	// 	parse_triangle(g_win, lines);
-	// if (!(ft_strncmp(lines, "p", 1)))
-	// 	parse_plan(g_win, lines);
 	return (0);
 }
 

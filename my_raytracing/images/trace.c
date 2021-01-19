@@ -7,6 +7,8 @@ t_hit   get_object_hit(t_object *obj, t_ray ray, t_data *g_win)
         return (get_hit_plane(obj, ray, g_win));
     if (obj->type == SP)
         return (get_hit_sphere(obj, ray, g_win));
+    return(create_dist_hit(obj, create_tuple(0,0,0), obj->color, 0));
+        
 }
 
 t_hit  hit_object(t_ray ray, t_data *g_win)
@@ -41,7 +43,7 @@ t_color   trace_ray(t_ray ray, t_data *g_win)
     t_hit hit;
 
     hit = hit_object(ray, g_win);
-    // if (hit.distance == INFINITY)
-    //     return (create_color(0, 0, 0));
+    if (hit.distance == INFINITY)
+        return (create_color(0, 0, 0));
     return (compute_lights(hit, ray, g_win));
 }

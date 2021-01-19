@@ -14,15 +14,15 @@ void	pixel_put(t_mlx_data g_win, int x, int y, t_color color)
 
 t_tuple        look_at(t_cam *cam, t_tuple ray)
 {
-        t_matrice mat;
-        t_tuple  inverse_dir;
-        t_tuple  unit;
-        t_tuple droit;
-        t_tuple haut;
+    t_matrice mat;
+    t_tuple  inverse_dir;
+    t_tuple  unit;
+    t_tuple droit;
+    t_tuple haut;
 
-    inverse_dir = multi_tuple_reel(cam->dir, -1);
+    inverse_dir = normale_tuple(soustraction_tuple(cam->pos, cam->dir));
     unit = create_tuple(0, 1, 0);
-    droit = produit_vectoriel(normale_tuple(unit), inverse_dir);
+    droit = normale_tuple(produit_vectoriel(unit, inverse_dir));
     haut = produit_vectoriel(inverse_dir, droit);
     mat.avant = inverse_dir;
     mat.droit = droit;
@@ -30,29 +30,50 @@ t_tuple        look_at(t_cam *cam, t_tuple ray)
     return (multi_matrice_tuple(ray, mat));
 }
 
+// t_color        pixel(t_tuple_2d pix, t_data *g_win)
+// {
+//         t_ray   ray;
+//         t_cam   *cam;
+//         double   fov_h;
+//         t_color cast;
+    
+//         cam = g_win->camera;
+//         fov_h = tan(cam->fov / 2 * (Pi / 180));
+//         ray.ori.x = (2 * ((pix.x + 0.5) / g_win->res.size_x - 1) * fov_h);
+//         ray.ori.y = ((1 - (2 * ((pix.y + 0.5) / g_win->res.size_y)) * fov_h));
+//         ray.ori.z = -1;
+//         /*ray.ori = look_at(cam, cam->pos);*/
+//         if (g_win->res.size_x >= g_win->res.size_y)
+// 		    ray.ori.x *= g_win->res.size_x / (double)g_win->res.size_y;
+// 	    else
+// 		    ray.ori.x *= g_win->res.size_y / (double)g_win->res.size_x;
+//         /*ray.dir = normale_tuple(ray.ori);
+//         ray.ori = g_win->camera->pos;*/
+//         ray.dir = normale_tuple(soustraction_tuple(ray.ori, cam->pos));
+//         ray.ori = cam->pos;
+//         cast = trace_ray(ray, g_win);
+//         return (cast);
+// }
+
 t_color        pixel(t_tuple_2d pix, t_data *g_win)
 {
-        t_ray   ray;
-        t_cam   *cam;
-        double   fov_h;
-        t_color cast;
+    t_tuple vec;
+    float   aspect_ratio;
+    t_ray ray;
+    t_color cast;
     
-        cam = g_win->camera;
-        fov_h = tan(cam->fov / 2 * (Pi / 180));
-        ray.ori.x = (2 * ((pix.x + 0.5) / g_win->res.size_x - 1)* fov_h);
-        ray.ori.y = (1 - (2 * ((pix.y + 0.5) / g_win->res.size_y)* fov_h));
-        ray.ori.z = -1;
-        ray.ori = look_at(cam, ray.ori);
-        if (g_win->res.size_x > g_win->res.size_y)
-		    ray.ori.x *= g_win->res.size_x / (double)g_win->res.size_y;
-	    else
-		ray.ori.y *= g_win->res.size_y / (double)g_win->res.size_x;
-        ray.dir = normale_tuple(ray.ori);
-        ray.ori = g_win->camera->pos;
-        cast = trace_ray(ray, g_win);
-        return (cast);
-
+    aspect_ratio = g_win->res.size_x / g_win->res.size_y;
+    vec.x = (2 * ((pix.x + 0.5) / g_win->res.size_x) - 1) * tan(g_win->camera->fov / 2 * M_PI / 180) * aspect_ratio;
+    vec.y = (1 - 2 * ((pix.y + 0.5) / g_win->res.size_y)) * tan(g_win->camera->fov / 2 * M_PI / 180)
+    ;
+    vec.z = 1;
+    ray.ori = g_win->camera->pos;
+    ray.dir = soustraction_tuple(vec, ray.ori);
+    ray.dir = normale_tuple(ray.dir);
+    cast = trace_ray(ray, g_win);
+    return (cast);
 }
+
 
 t_color  *get_shape(t_data *g_win)
 {

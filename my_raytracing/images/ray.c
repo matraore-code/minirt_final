@@ -16,9 +16,9 @@ int   ombrage(t_object *object, t_light *light, t_ray ray, t_data *g_win)
     t_hit    hit_point;
     double d;
 
-    object = g_win->objects->content;
+    objects = g_win->objects;
     d = distance_tuples(ray.ori, light->pos);
-    while (object)
+    while (objects)
     {
         if (objects->content != object)
         {

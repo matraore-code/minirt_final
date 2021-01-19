@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 12:22:04 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:32:19 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/17 16:38:32 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int         check_light(t_data *g_win,char **str)
 }
 
 
-
 void			checked_value_light(char **array, t_light *light, t_data *g_win)
 {
     char    **str;
@@ -55,7 +54,8 @@ void			checked_value_light(char **array, t_light *light, t_data *g_win)
 extern int      parse_light(t_data *g_win, const char *lines)
 {
     char    **array;
-	 t_light	*light;
+	t_light	*light;
+    
     array = ft_split(lines, ' ');
 	light = create_light(g_win);
     if (!check_light(g_win, array))

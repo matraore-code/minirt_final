@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:55:34 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 11:42:02 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/17 11:20:24 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_list	*lst_new_back(t_list **node, void *content)
 		return (NULL);
 	if (!*node)
 	{
-		printf("LIST NULL\n");
 		*node = lst_new(content);
 		return (*node);
 	}

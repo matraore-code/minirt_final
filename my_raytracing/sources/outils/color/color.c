@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 09:04:56 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:05:19 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:46:29 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,23 @@ t_color		compare_color(t_color c, t_color a)
 {
 	t_color		col;
 
-	col.r = fmax(c.r, a.r);
-	col.g = fmax(c.g, a.g);
-	col.b = fmax(c.b, a.b);
+	col.r = fmin(c.r, a.r);
+	col.g = fmin(c.g, a.g);
+	col.b = fmin(c.b, a.b);
 	return (col);
 }
 
+// t_color		compare_color(t_color c, t_color a)
+// {
+// 	t_color		col;
+
+// 	col.r = fmax(c.r, a.r);
+// 	col.g = fmax(c.g, a.g);
+// 	col.b = fmax(c.b, a.b);
+// 	return (col);
+// }
+
+t_color adding_color(t_color c, t_color d)
+{
+    return (create_color(c.r + d.r, c.g + d.g, c.b + d.b));
+}

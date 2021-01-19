@@ -64,7 +64,7 @@ int				key_hook(int keycode, void *param)
 		exit_win(keycode, g_win);
 	if (keycode == KEY_LEFT)
 		camera_prec(keycode, g_win);
-	if (keycode == KEY_LEFT)
+	if (keycode == KEY_RIGHT)
 		camera_suiv(keycode, g_win);
 	return (0);
 }

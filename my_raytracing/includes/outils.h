@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 09:00:57 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:40:40 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/18 11:30:07 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,7 @@ t_color		multi_color_reel(t_color c, double a);
 t_color		create_color(double r, double g, double b);
 t_color		multiple_colors(t_color a, t_color b);
 t_color		compare_color(t_color c, t_color a);
+t_color adding_color(t_color c, t_color d);
 
 
 void error_exit(char *err, t_data *data);
